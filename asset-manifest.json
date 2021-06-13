@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/fyle-react/static/css/main.b58c1b49.chunk.css",
-    "main.js": "/fyle-react/static/js/main.c7ebc9c4.chunk.js",
-    "main.js.map": "/fyle-react/static/js/main.c7ebc9c4.chunk.js.map",
+    "main.js": "/fyle-react/static/js/main.df5752f1.chunk.js",
+    "main.js.map": "/fyle-react/static/js/main.df5752f1.chunk.js.map",
     "runtime-main.js": "/fyle-react/static/js/runtime-main.6d3127d9.js",
     "runtime-main.js.map": "/fyle-react/static/js/runtime-main.6d3127d9.js.map",
     "static/js/2.a5d09eeb.chunk.js": "/fyle-react/static/js/2.a5d09eeb.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.6d3127d9.js",
     "static/js/2.a5d09eeb.chunk.js",
     "static/css/main.b58c1b49.chunk.css",
-    "static/js/main.c7ebc9c4.chunk.js"
+    "static/js/main.df5752f1.chunk.js"
   ]
 }
