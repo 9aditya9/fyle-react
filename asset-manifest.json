@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/flask-react/static/css/main.b58c1b49.chunk.css",
+    "main.js": "/flask-react/static/js/main.569405b1.chunk.js",
+    "main.js.map": "/flask-react/static/js/main.569405b1.chunk.js.map",
+    "runtime-main.js": "/flask-react/static/js/runtime-main.2a86b854.js",
+    "runtime-main.js.map": "/flask-react/static/js/runtime-main.2a86b854.js.map",
+    "static/js/2.a5d09eeb.chunk.js": "/flask-react/static/js/2.a5d09eeb.chunk.js",
+    "static/js/2.a5d09eeb.chunk.js.map": "/flask-react/static/js/2.a5d09eeb.chunk.js.map",
+    "index.html": "/flask-react/index.html",
+    "static/css/main.b58c1b49.chunk.css.map": "/flask-react/static/css/main.b58c1b49.chunk.css.map",
+    "static/js/2.a5d09eeb.chunk.js.LICENSE.txt": "/flask-react/static/js/2.a5d09eeb.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2a86b854.js",
+    "static/js/2.a5d09eeb.chunk.js",
+    "static/css/main.b58c1b49.chunk.css",
+    "static/js/main.569405b1.chunk.js"
+  ]
+}
