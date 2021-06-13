@@ -86,7 +86,7 @@ const App = () => {
       <Header />
       <div className="App">
         <Route
-          path="/"
+          path="/fyle-react"
           exact
           render={(props) => (
             <>
@@ -97,7 +97,7 @@ const App = () => {
           )}
         />
         <Route
-          path="/favorites"
+          path="/fyle-react/favorites"
           exact
           render={(props) => (
             <>
