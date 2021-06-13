@@ -98,6 +98,7 @@ const App = () => {
         />
         <Route
           path="/favorites"
+          exact
           render={(props) => (
             <>
               <Favorites favorites={favorites} removeFav={removeFav} />
