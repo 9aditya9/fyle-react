@@ -11,7 +11,7 @@ const GetBanksFromApi = async ({ city }) => {
 }
 
 const GetSearchCompletion = async ({ searched }) => {
-	const request = Api.get({ params: { q: searched } })
+	const request = Api.get('',{ params: { q: searched } })
 	const data = request.then(response => response.data)
 	const data_1 = await data
 	return data_1.result
