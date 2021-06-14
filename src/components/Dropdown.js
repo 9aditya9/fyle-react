@@ -1,8 +1,8 @@
 import { makeStyles } from '@material-ui/core';
 import { FormControl, Select, MenuItem } from '@material-ui/core';
 import React from 'react';
-import { useState, useEffect } from 'react';
-const useStyles = makeStyles((theme) => ({
+import { useState } from 'react';
+const useStyles = makeStyles(() => ({
 	button: {
 		display: 'block',
 	},
@@ -13,7 +13,6 @@ const useStyles = makeStyles((theme) => ({
 		alignSelf: 'center',
 		justify: 'center',
 		width: '100%',
-		marginTop: theme.spacing(5),
 	},
 	select: {
 		fontSize: '30px',

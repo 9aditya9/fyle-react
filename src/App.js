@@ -13,13 +13,13 @@ const cityOptions = [
   { label: "Chennai", value: "CHENNAI" },
   { label: "Kolkata", value: "KOLKATA" },
   { label: "Delhi", value: "DELHI" },
-]
-  ;
+];
+
 const App = () => {
   const [city, setCity] = useState('BANGALORE')
   const [banks, setBanks] = useState([])
-  const [favorites, setFavorites] = BanksService.FavoritesWithLocalStorage('six')
-  // const [response, setResponse] = BanksService.ResponseCache('response')
+  const [favorites, setFavorites] = BanksService.FavoritesWithLocalStorage('favorites')
+  const [response, setResponse] = BanksService.ResponseCache('response')
 
   const handleFav = (event) => {
     var favIFSC = event.target.value
@@ -33,13 +33,13 @@ const App = () => {
     if (favorites && favorites.length > 0) {
       favorites.forEach((val, index) => {
         if (val.ifsc === favBank.ifsc) {
-          console.log('equal', index);
+          // console.log('equal', index);
           favorites.splice(index, 1)
-          console.log(favorites);
+          // console.log(favorites);
           setFavorites([...favorites])
           return
         }
-      }) 
+      })
     }
     else {
       setFavorites([...favorites, favBank])
@@ -48,8 +48,8 @@ const App = () => {
   }
 
   var favoritesIFSC = favorites.map((value) => value.ifsc)
-	// console.log(favoritesIFSC)
-  
+  // console.log(favoritesIFSC)
+
   const removeFav = (event) => {
     console.log(event.target.value)
     if (favorites && favorites.length > 0) {
@@ -61,7 +61,7 @@ const App = () => {
           setFavorites([...favorites])
           return
         }
-      }) 
+      })
     }
   }
 
@@ -72,13 +72,37 @@ const App = () => {
 
 
   useEffect(() => {
-    BanksService
-      .GetBanksFromApi({ city })
-      .then(result => setBanks(result))
-      .catch(error => {
-        alert('Api call unsuccessful')
+    // BanksService
+    //   .GetBanksFromApi({ city })
+    //   .then(result => setBanks(result))
+    //   .catch(error => {
+    //     alert('Api call unsuccessful')
+    //   })
+    //   console.log(banks);
+    var url = '/autocomplete?q=' + city
+    if (response[url]) {
+      console.log(response[url])
+      var data = response[url]
+      setBanks(data.result)
+      console.log('response caching working')
+      return
+    }
+    else {
+      const result = BanksService.GetBanksFromApi({ city })
+      // console.log(result)
+      // console.log('api is working fine');
+      result.then(res => {
+        // console.log(res)
+        response[url] = res
+        // console.log(response);
+        setResponse({...response})
+        // console.log(response)
+        setBanks(res.result)
+        // console.log(url)
       })
-  },[city])
+    }
+    // console.log(banks)
+  }, [city])
 
 
   return (
