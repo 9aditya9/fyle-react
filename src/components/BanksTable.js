@@ -119,7 +119,7 @@ const BanksTable = ({ Banks, handleFav, favoritesIFSC }) => {
 											<Checkbox onChange={handleFav} icon={<FavoriteBorderIcon />} checkedIcon={<Favorite />} name="checkedH" checked={favoritesIFSC.includes(element.ifsc)} value={element.ifsc} />
 										</TableCell>
 										<TableCell>{element.ifsc}</TableCell>	
-										<TableCell style={{ color: 'blue' }}><Link to={"/fyle-react/banks/" + element.ifsc}>{element.bank_name + element.bank_id}</Link></TableCell>
+										<TableCell style={{ color: 'blue' }}><Link to={"/fyle-react/banks/" + element.ifsc}>{element.bank_name}</Link></TableCell>
 										<TableCell>{element.branch}</TableCell>
 										<TableCell>{element.address}</TableCell>
 										<TableCell>{element.city}</TableCell>

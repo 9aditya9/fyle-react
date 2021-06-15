@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { useEffect, useState } from 'react';
 import BanksService from './services/BanksService';
 import Dropdown from './components/Dropdown';
@@ -96,7 +96,7 @@ const App = () => {
         // console.log(res)
         response[url] = res
         // console.log(response);
-        setResponse({...response})
+        setResponse({ ...response })
         // console.log(response)
         setBanks(res.result)
         // console.log(url)
@@ -108,37 +108,39 @@ const App = () => {
 
   return (
     <Router>
-      <Header />
       <div className="App">
-        <Route
-          path="/fyle-react"
-          exact
-          render={(props) => (
-            <>
-              <Dropdown city={city} handleCityChange={handleCityChange} cityOptions={cityOptions} />
-              <BanksTable Banks={banks} handleFav={handleFav} favoritesIFSC={favoritesIFSC} />
+        <Header />
+        <Switch>
+          <Route
+            path="/fyle-react"
+            exact
+            render={(props) => (
+              <>
+                <Dropdown city={city} handleCityChange={handleCityChange} cityOptions={cityOptions} />
+                <BanksTable Banks={banks} handleFav={handleFav} favoritesIFSC={favoritesIFSC} />
 
-            </>
-          )}
-        />
-        <Route
-          path="/fyle-react/favorites"
-          exact
-          render={(props) => (
-            <>
-              <Favorites favorites={favorites} removeFav={removeFav} />
-            </>
-          )}
-        />
-        <Route
-        path="/fyle-react/banks/:banksid"
-        exact
-        render={(props) => (
-          <>
-          <ViewBanks Banks={banks} banksid={props.match.params.banksid} />
-          </>
-        )}
-        />
+              </>
+            )}
+          />
+          <Route
+            path="/fyle-react/favorites"
+            exact
+            render={(props) => (
+              <>
+                <Favorites favorites={favorites} removeFav={removeFav} />
+              </>
+            )}
+          />
+          <Route
+            path="/fyle-react/banks/:banksid"
+            exact
+            render={(props) => (
+              <>
+                <ViewBanks Banks={banks} banksid={props.match.params.banksid} />
+              </>
+            )}
+          />
+        </Switch>
       </div>
     </Router>
   );
