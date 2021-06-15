@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/fyle-react/static/css/main.b58c1b49.chunk.css",
-    "main.js": "/fyle-react/static/js/main.62c46f87.chunk.js",
-    "main.js.map": "/fyle-react/static/js/main.62c46f87.chunk.js.map",
+    "main.css": "/fyle-react/static/css/main.6aa141e7.chunk.css",
+    "main.js": "/fyle-react/static/js/main.7a37339e.chunk.js",
+    "main.js.map": "/fyle-react/static/js/main.7a37339e.chunk.js.map",
     "runtime-main.js": "/fyle-react/static/js/runtime-main.6d3127d9.js",
     "runtime-main.js.map": "/fyle-react/static/js/runtime-main.6d3127d9.js.map",
-    "static/js/2.4f720c97.chunk.js": "/fyle-react/static/js/2.4f720c97.chunk.js",
-    "static/js/2.4f720c97.chunk.js.map": "/fyle-react/static/js/2.4f720c97.chunk.js.map",
+    "static/js/2.d6ebca12.chunk.js": "/fyle-react/static/js/2.d6ebca12.chunk.js",
+    "static/js/2.d6ebca12.chunk.js.map": "/fyle-react/static/js/2.d6ebca12.chunk.js.map",
     "index.html": "/fyle-react/index.html",
-    "static/css/main.b58c1b49.chunk.css.map": "/fyle-react/static/css/main.b58c1b49.chunk.css.map",
-    "static/js/2.4f720c97.chunk.js.LICENSE.txt": "/fyle-react/static/js/2.4f720c97.chunk.js.LICENSE.txt"
+    "static/css/main.6aa141e7.chunk.css.map": "/fyle-react/static/css/main.6aa141e7.chunk.css.map",
+    "static/js/2.d6ebca12.chunk.js.LICENSE.txt": "/fyle-react/static/js/2.d6ebca12.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.6d3127d9.js",
-    "static/js/2.4f720c97.chunk.js",
-    "static/css/main.b58c1b49.chunk.css",
-    "static/js/main.62c46f87.chunk.js"
+    "static/js/2.d6ebca12.chunk.js",
+    "static/css/main.6aa141e7.chunk.css",
+    "static/js/main.7a37339e.chunk.js"
   ]
 }
