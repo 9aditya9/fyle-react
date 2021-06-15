@@ -10,14 +10,13 @@ import Button from '@material-ui/core/Button'
 import Favorite from '@material-ui/icons/Favorite'
 import Checkbox from '@material-ui/core/Checkbox'
 import BanksService from '../services/BanksService';
-
+import { Link } from 'react-router-dom'
 
 const BanksTable = ({ Banks, handleFav, favoritesIFSC }) => {
 	const [page, setPage] = useState(0)
 	const [rowsPerPage, setRowsPerPage] = useState(3)
 	const [searched, setSearched] = useState("")
 	const [searchOptions, setSearchOptions] = useState([])
-
 
 	const useStyles = makeStyles({
 		root: {
@@ -119,8 +118,8 @@ const BanksTable = ({ Banks, handleFav, favoritesIFSC }) => {
 										<TableCell>
 											<Checkbox onChange={handleFav} icon={<FavoriteBorderIcon />} checkedIcon={<Favorite />} name="checkedH" checked={favoritesIFSC.includes(element.ifsc)} value={element.ifsc} />
 										</TableCell>
-										<TableCell>{element.ifsc}</TableCell>
-										<TableCell style={{ color: 'blue' }}>{element.bank_name}</TableCell>
+										<TableCell>{element.ifsc}</TableCell>	
+										<TableCell style={{ color: 'blue' }}><Link to={"/fyle-react/banks/" + element.ifsc}>{element.bank_name + element.bank_id}</Link></TableCell>
 										<TableCell>{element.branch}</TableCell>
 										<TableCell>{element.address}</TableCell>
 										<TableCell>{element.city}</TableCell>

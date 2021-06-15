@@ -6,6 +6,7 @@ import Dropdown from './components/Dropdown';
 import Header from './components/Header'
 import BanksTable from './components/BanksTable';
 import Favorites from './components/Favorites'
+import ViewBanks from './components/ViewBanks';
 
 const cityOptions = [
   { label: "Bangalore", value: "BANGALORE" },
@@ -128,6 +129,15 @@ const App = () => {
               <Favorites favorites={favorites} removeFav={removeFav} />
             </>
           )}
+        />
+        <Route
+        path="/fyle-react/banks/:banksid"
+        exact
+        render={(props) => (
+          <>
+          <ViewBanks Banks={banks} banksid={props.match.params.banksid} />
+          </>
+        )}
         />
       </div>
     </Router>
