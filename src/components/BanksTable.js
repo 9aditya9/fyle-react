@@ -28,14 +28,49 @@ const BanksTable = ({ Banks, handleFav, favoritesIFSC }) => {
 		},
 	})
 
-	useEffect(() => {
+
+	// const handleApiCall = () => {
+	// 	BanksService.GetSearchCompletion({ searched })
+	// 		.then(result => setSearchOptions(result))
+	// 		.catch(error => {
+	// 			alert('Search Completion Not Working')
+	// 		})
+	// }
+
+	function debounce(func, timeout = 300) {
+		let timer;
+		return (...args) => {
+			clearTimeout(timer);
+			timer = setTimeout(() => { func.apply(this, args); }, timeout)
+		}
+	}
+	function handleApiCall({ searched }){
 		BanksService.GetSearchCompletion({ searched })
 			.then(result => setSearchOptions(result))
 			.catch(error => {
 				alert('Search Completion Not Working')
 			})
+	}
+	function han(){
+		console.log("debounce")
+	}
+	useEffect(() => {
+		console.log(searched)
+		// const handleApiCall = ({ searched }) => {
+		// 	BanksService.GetSearchCompletion({ searched })
+		// 		.then(result => setSearchOptions(result))
+		// 		.catch(error => {
+		// 			alert('Search Completion Not Working')
+		// 		})
+		// }
+		debounce(() => han())
 	}, [searched])
 
+	// BanksService.GetSearchCompletion({ searched })
+	// 	.then(result => setSearchOptions(result))
+	// 	.catch(error => {
+	// 		alert('Search Completion Not Working')
+	// 	})
 
 	const handleChangePage = (event, newPage) => {
 		setPage(newPage)
@@ -49,6 +84,7 @@ const BanksTable = ({ Banks, handleFav, favoritesIFSC }) => {
 
 			<Paper className="paperContainer">
 				<Autocomplete
+					onClose={() => setSearched("")}
 					options={searchOptions.map((val) => {
 						if (searched === "") {
 							return ""
@@ -70,11 +106,19 @@ const BanksTable = ({ Banks, handleFav, favoritesIFSC }) => {
 					}
 					)}
 					renderInput={(params) => {
-						// console.log(params);
+						console.log(params);
 						return (
-							<TextField {...params} label="Search" margin="20px" variant="outlined" onChange={(event) => (
-								setSearched(event.target.value)
-							)} />
+							<TextField {...params} label="Search" margin="20px" variant="outlined" onChange={(event) => {
+								if (event.target.value) {
+									console.log(searched)
+									setSearched(event.target.value)
+								}
+								else {
+									console.log(searched)
+									setSearched("")
+
+								}
+							}} />
 						)
 					}}
 				/>
@@ -96,7 +140,7 @@ const BanksTable = ({ Banks, handleFav, favoritesIFSC }) => {
 					<TableBody>
 						{
 							Banks.filter((val) => {
-								
+
 								if (searched === "") {
 									return val
 								} else if (val.ifsc.toLowerCase().includes(searched.toLowerCase())) {
@@ -118,7 +162,7 @@ const BanksTable = ({ Banks, handleFav, favoritesIFSC }) => {
 										<TableCell>
 											<Checkbox onChange={handleFav} icon={<FavoriteBorderIcon />} checkedIcon={<Favorite />} name="checkedH" checked={favoritesIFSC.includes(element.ifsc)} value={element.ifsc} />
 										</TableCell>
-										<TableCell>{element.ifsc}</TableCell>	
+										<TableCell>{element.ifsc}</TableCell>
 										<TableCell style={{ color: 'blue' }}><Link to={"/fyle-react/banks/" + element.ifsc}>{element.bank_name}</Link></TableCell>
 										<TableCell>{element.branch}</TableCell>
 										<TableCell>{element.address}</TableCell>
