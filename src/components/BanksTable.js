@@ -29,7 +29,7 @@ const BanksTable = ({ Banks, handleFav, favoritesIFSC }) => {
 		},
 	})
 
-	function debounce(func, timeout = 1000){
+	function debounce(func, timeout = 600){
 		// console.log("hello", func);
 		return (...args) => {
 		  clearTimeout(timer);
