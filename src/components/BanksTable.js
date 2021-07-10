@@ -17,6 +17,7 @@ const BanksTable = ({ Banks, handleFav, favoritesIFSC }) => {
 	const [rowsPerPage, setRowsPerPage] = useState(3)
 	const [searched, setSearched] = useState("")
 	const [searchOptions, setSearchOptions] = useState([])
+	const[timer, setTimer] = useState("")
 
 	const useStyles = makeStyles({
 		root: {
@@ -28,49 +29,27 @@ const BanksTable = ({ Banks, handleFav, favoritesIFSC }) => {
 		},
 	})
 
-
-	// const handleApiCall = () => {
-	// 	BanksService.GetSearchCompletion({ searched })
-	// 		.then(result => setSearchOptions(result))
-	// 		.catch(error => {
-	// 			alert('Search Completion Not Working')
-	// 		})
-	// }
-
-	function debounce(func, timeout = 300) {
-		let timer;
+	function debounce(func, timeout = 1000){
+		// console.log("hello", func);
 		return (...args) => {
-			clearTimeout(timer);
-			timer = setTimeout(() => { func.apply(this, args); }, timeout)
-		}
-	}
-	function handleApiCall({ searched }){
+		  clearTimeout(timer);
+		  const t = setTimeout(func, timeout);
+		  setTimer(t)
+		};
+	      }
+	function handleApiCall() {
 		BanksService.GetSearchCompletion({ searched })
 			.then(result => setSearchOptions(result))
 			.catch(error => {
 				alert('Search Completion Not Working')
 			})
 	}
-	function han(){
-		console.log("debounce")
-	}
+	
+	const handleDebounce = debounce(handleApiCall)
 	useEffect(() => {
-		console.log(searched)
-		// const handleApiCall = ({ searched }) => {
-		// 	BanksService.GetSearchCompletion({ searched })
-		// 		.then(result => setSearchOptions(result))
-		// 		.catch(error => {
-		// 			alert('Search Completion Not Working')
-		// 		})
-		// }
-		debounce(() => han())
+		// console.log(searched)
+		handleDebounce()
 	}, [searched])
-
-	// BanksService.GetSearchCompletion({ searched })
-	// 	.then(result => setSearchOptions(result))
-	// 	.catch(error => {
-	// 		alert('Search Completion Not Working')
-	// 	})
 
 	const handleChangePage = (event, newPage) => {
 		setPage(newPage)
